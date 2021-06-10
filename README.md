@@ -1,1 +1,1 @@
-# profdeco
+# ProfDeco
