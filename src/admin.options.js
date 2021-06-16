@@ -7,7 +7,14 @@ const { student } = require('./student/student.entity')
 
 /** @type {AdminBro.AdminBroOptions} */
 const options = {
-    resources: [student]
+    resources: [student],
+    locale: {
+        translations: {
+            labels: {
+               student: 'Alunos'
+            }
+        }
+    }
 }
 
 module.exports = options
