@@ -8,10 +8,12 @@ const app = express()
 const port = 3000
 
 const run = async () => {
-  await mongoose.connect('mongodb://localhost:27017/test', {
+  await mongoose.connect('mongodb://mongo:27017/profdeco', {
     useNewUrlParser: true, 
     useUnifiedTopology: true
-  });
+  })
+  .then(db => console.log('Db is connected to: ', db.connection.host))
+  .catch(err => console.log('Error connect db: ', err));
 
   const admin = new AdminBro(options);
   const router = buildAdminRouter(admin)

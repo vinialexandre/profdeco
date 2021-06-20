@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  profdeco:
+    image: profdeco
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    links: 
+      - mongo
+    volumes: 
+      - .:/usr/src/app
+
+  mongo:
+    image: mongo:latest
+    ports: 
+      - 27017:27017
+    volumes: 
+      - mongodb:/data/db
+    logging:
+      driver: none
+
+volumes:
+  mongodb:
